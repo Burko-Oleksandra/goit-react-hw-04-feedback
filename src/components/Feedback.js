@@ -33,7 +33,7 @@ class Feedback extends Component {
   };
 
   getPositivePersentage = () => {
-    return (this.state.good / this.getTotalFeedback()) * 100;
+    return Math.round((this.state.good / this.getTotalFeedback()) * 100);
   };
 
   render() {
@@ -43,7 +43,6 @@ class Feedback extends Component {
           options={Object.keys(this.state)}
           onLeaveFeedback={this.onLeaveFeedback}
         />
-        <h3>Statistics</h3>
         {Object.values(this.state).some(item => item > 0) ? (
           <Statistics
             good={this.state.good}
